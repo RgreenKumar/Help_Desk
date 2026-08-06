@@ -83,7 +83,12 @@ public class SupportEngineerService {
     }
 
     public void deleteEngineer(Long id) {
-        supportEngineerRepository.deleteById(id);
+        SupportEngineer engineer = getById(id);
+
+        userRepository.findByEmail(engineer.getEmail())
+                .ifPresent(userRepository::delete);
+
+        supportEngineerRepository.delete(engineer);
     }
 
     private String generateEngineerId() {

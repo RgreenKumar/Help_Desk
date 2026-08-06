@@ -292,12 +292,16 @@ const SupportEngineersPage = () => {
         <div className="modal-overlay">
           <div className="modal-content delete-modal">
             <button className="close-btn abs" onClick={() => setShowDelete(false)}><X size={20}/></button>
-            <div className="delete-icon-wrapper">
-              <AlertTriangle className="warning-icon" size={48} />
-            </div>
             <h2>Delete</h2>
-            <p>Want to Delete the support Engineer {activeEngineer?.firstName} {activeEngineer?.lastName}?</p>
-            <button className="btn-danger full-width" onClick={handleDelete}>Delete</button>
+            <div className="delete-modal-body">
+              <div className="delete-modal-info">
+                <div className="delete-icon-wrapper">
+                  <AlertTriangle className="warning-icon" size={48} />
+                </div>
+                <p>Want to Delete the support Engineer {activeEngineer?.firstName} {activeEngineer?.lastName}?</p>
+              </div>
+              <button className="btn-danger full-width" onClick={handleDelete}>Delete</button>
+            </div>
           </div>
         </div>
       )}

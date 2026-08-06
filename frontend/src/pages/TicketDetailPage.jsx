@@ -12,8 +12,10 @@ const TicketDetailPage = () => {
   const [engineers, setEngineers] = useState([]);
   const [selectedEngineer, setSelectedEngineer] = useState('');
   const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [assigning, setAssigning] = useState(false);
+  const [postingComment, setPostingComment] = useState(false);
 
   const loadTicket = async () => {
     try {
@@ -32,6 +34,15 @@ const TicketDetailPage = () => {
     }
   };
 
+  const loadComments = async () => {
+    try {
+      const response = await api.get(`/tickets/${id}/comments`);
+      setComments(response.data || []);
+    } catch (error) {
+      console.error('Failed to load comments:', error);
+    }
+  };
+
   const loadEngineers = async () => {
     if (user?.role !== 'ADMIN') {
       return;
@@ -47,6 +58,7 @@ const TicketDetailPage = () => {
 
   useEffect(() => {
     loadTicket();
+    loadComments();
   }, [id]);
 
   useEffect(() => {
@@ -77,12 +89,27 @@ const TicketDetailPage = () => {
     }
   };
 
-  const handlePostComment = () => {
+  const handlePostComment = async () => {
     if (!comment.trim()) {
       return;
     }
 
-    setComment('');
+    try {
+      setPostingComment(true);
+
+      await api.post(`/tickets/${id}/comments`, {
+        message: comment.trim()
+      });
+
+      setComment('');
+
+      await loadComments();
+    } catch (error) {
+      console.error('Failed to post comment:', error);
+      alert('Failed to post comment.');
+    } finally {
+      setPostingComment(false);
+    }
   };
 
   const formatDateTime = (date) => {
@@ -246,9 +273,35 @@ const TicketDetailPage = () => {
 
               <h3>Comments &amp; Activity</h3>
 
-              <p className="comments-placeholder">
-                No comments yet.
-              </p>
+              {comments.length === 0 ? (
+                <p className="comments-placeholder">
+                  No comments yet.
+                </p>
+              ) : (
+                <div className="comments-list">
+                  {comments.map((item) => (
+                    <div key={item.id} className="comment-item">
+                      <div className="comment-item-header">
+                        <strong>
+                          {item.authorName || 'Unknown'}
+                        </strong>
+                        {item.authorRole && (
+                          <span className="comment-author-role">
+                            {' '}
+                            · {item.authorRole}
+                          </span>
+                        )}
+                        <span className="comment-item-date">
+                          {formatDateTime(item.createdDate)}
+                        </span>
+                      </div>
+                      <p className="comment-item-message">
+                        {item.message}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <div className="comment-box">
 
@@ -266,9 +319,10 @@ const TicketDetailPage = () => {
                   <button
                     type="button"
                     className="post-btn"
+                    disabled={postingComment}
                     onClick={handlePostComment}
                   >
-                    Post Comment
+                    {postingComment ? 'Posting...' : 'Post Comment'}
                   </button>
 
                 </div>

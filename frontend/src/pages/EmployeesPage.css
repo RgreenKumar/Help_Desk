@@ -164,7 +164,26 @@
 
 .view-modal { max-width: 500px; }
 .form-modal { max-width: 600px; }
-.delete-modal { max-width: 400px; text-align: center; }
+.delete-modal {
+  max-width: 600px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.delete-modal-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
 .modal-header {
   display: flex;
@@ -264,7 +283,8 @@
 }
 
 .delete-icon-wrapper {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .warning-icon {
@@ -274,23 +294,25 @@
 .delete-modal h2 {
   margin: 0 0 0.5rem 0;
   color: #1A1A2E;
+  font-size: 1.5rem;
 }
 
 .delete-modal p {
-  color: #6B7280;
-  margin-bottom: 1.5rem;
+  color: #1A1A2E;
+  margin: 0;
 }
 
 .btn-danger {
-  background-color: #EF4444;
+  background-color: #6C4DDD;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   border-radius: 0.5rem;
   font-weight: 600;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .full-width {
-  width: 100%;
+  width: auto;
 }
