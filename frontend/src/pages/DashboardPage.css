@@ -1,0 +1,363 @@
+.dashboard-container {
+  padding: 28px 42px 40px;
+  width: 100%;
+  box-sizing: border-box;
+  background: #f7f7fb;
+  min-height: 100vh;
+}
+
+/* HEADER */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 34px;
+  gap: 20px;
+}
+
+.dashboard-title {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 10px 0;
+}
+
+.dashboard-subtitle {
+  color: #667085;
+  margin: 0;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6c3fc5 0%, #4a1d96 100%);
+  color: #ffffff;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 170px;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-icon-right {
+  width: 18px;
+  height: 18px;
+  margin-left: 12px;
+}
+
+/* ==========================
+   STAT CARDS
+========================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px 28px;
+  margin-bottom: 36px;
+}
+
+/*
+  StatCard component should already provide its own card styling.
+  These rules help keep every card the same size.
+*/
+
+.stats-grid > * {
+  min-width: 0;
+  min-height: 152px;
+  box-sizing: border-box;
+}
+
+/* ==========================
+   CHARTS
+========================== */
+
+.charts-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.chart-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 32px;
+  min-width: 0;
+  min-height: 390px;
+  box-sizing: border-box;
+  border: 1px solid #eeeeF4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.chart-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 28px 0;
+}
+
+/* DONUT CHART */
+
+.donut-chart-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 280px;
+}
+
+.donut-chart-container > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.chart-legend {
+  width: 42%;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding-left: 18px;
+  box-sizing: border-box;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  margin-right: 13px;
+}
+
+.legend-label {
+  color: #667085;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.legend-value {
+  color: #111827;
+  font-weight: 600;
+  margin-left: 14px;
+}
+
+/* BAR CHART */
+
+.bar-chart-container {
+  width: 100%;
+  height: 280px;
+}
+
+/* ==========================
+   RECENT TICKETS
+========================== */
+
+.recent-tickets-section {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 26px 30px;
+  border: 1px solid #eeeef4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.card-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 22px 0;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th {
+  padding: 14px 16px;
+  background: #f8f8fc;
+  color: #667085;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.data-table td {
+  padding: 16px;
+  color: #1a1a2e;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================
+   BADGES
+========================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 11px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.badge-purple {
+  background: rgba(108, 63, 197, 0.12);
+  color: #6c3fc5;
+}
+
+/* PRIORITY */
+
+.priority-critical {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+.priority-high {
+  background: rgba(249, 115, 22, 0.12);
+  color: #f97316;
+}
+
+.priority-medium {
+  background: rgba(139, 92, 246, 0.12);
+  color: #8b5cf6;
+}
+
+.priority-low {
+  background: rgba(59, 130, 246, 0.12);
+  color: #3b82f6;
+}
+
+/* STATUS */
+
+.status-new {
+  background: rgba(59, 130, 246, 0.12);
+  color: #3b82f6;
+}
+
+.status-assigned {
+  background: rgba(139, 92, 246, 0.12);
+  color: #8b5cf6;
+}
+
+.status-accepted {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.status-in-progress {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+}
+
+.status-resolved {
+  background: rgba(20, 184, 166, 0.12);
+  color: #14b8a6;
+}
+
+.status-closed {
+  background: rgba(107, 114, 128, 0.12);
+  color: #6b7280;
+}
+
+.status-reopened {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+/*
+  Keep 4 cards for normal laptop/desktop screens.
+  Only switch when the content area actually becomes small.
+*/
+
+@media (max-width: 1100px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .charts-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard-container {
+    padding: 18px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .donut-chart-container {
+    flex-direction: column;
+  }
+
+  .donut-chart-container > div:first-child {
+    width: 100% !important;
+  }
+
+  .chart-legend {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 15px;
+  }
+
+  .chart-card {
+    padding: 22px;
+  }
+}

@@ -1,0 +1,64 @@
+/* Reusing the CSS from EmployeesPage since they share the same structure */
+@import './EmployeesPage.css';
+
+.badge-orange {
+  background-color: #F97316;
+}
+
+.badge-blue {
+  background-color: #3B82F6;
+}
+
+.delete-modal-v2 {
+  max-width: 380px;
+  text-align: left;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.delete-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.delete-modal-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1A1A2E;
+}
+
+.delete-modal-body {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.delete-icon-wrapper-v2 {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background: #FEF3C7;
+  border: 1px solid #FDE68A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-icon-wrapper-v2 .warning-icon {
+  color: #F59E0B;
+}
+
+.delete-modal-body p {
+  margin: 0;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.delete-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
